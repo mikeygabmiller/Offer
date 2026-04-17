@@ -1,0 +1,522 @@
+<!--
+  MIKEY'S MOBILE DETAILING
+  ★ FREE EXTERIOR FLASH OFFER — No JS, Pure CSS ★
+  
+  HOW TO ADD TO CARRD:
+  1. Add an Embed element where you want the offer
+  2. Set type to "Code", style to "Hidden"
+  3. Paste this entire block
+-->
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,800;0,900;1,800&display=swap');
+
+.mkd-flash *, .mkd-flash *::before, .mkd-flash *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.mkd-flash {
+  --red: #c0392b;
+  --red-dark: #a5311f;
+  --red-light: #e74c3c;
+  font-family: 'Outfit', sans-serif;
+  max-width: 780px;
+  margin: 40px auto;
+  padding: 0 12px;
+}
+
+/* ── MAIN CARD ── */
+.mkd-flash-card {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 
+    0 0 60px rgba(192,57,43,0.2),
+    0 0 120px rgba(192,57,43,0.08),
+    0 20px 60px rgba(0,0,0,0.4);
+  animation: mkd-f-glow 3s ease-in-out infinite;
+  position: relative;
+}
+
+@keyframes mkd-f-glow {
+  0%, 100% { box-shadow: 0 0 60px rgba(192,57,43,0.2), 0 0 120px rgba(192,57,43,0.08), 0 20px 60px rgba(0,0,0,0.4); }
+  50% { box-shadow: 0 0 90px rgba(192,57,43,0.3), 0 0 160px rgba(192,57,43,0.12), 0 20px 60px rgba(0,0,0,0.4); }
+}
+
+/* ── SPLIT LAYOUT ── */
+.mkd-flash-inner {
+  display: flex;
+  min-height: 500px;
+}
+
+@media (max-width: 600px) {
+  .mkd-flash-inner {
+    flex-direction: column;
+    min-height: auto;
+  }
+}
+
+/* ── LEFT PANEL (Red) ── */
+.mkd-flash-left {
+  flex: 0 0 42%;
+  background: var(--red);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Diagonal stripes */
+.mkd-flash-left::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 18px,
+    rgba(0,0,0,0.06) 18px,
+    rgba(0,0,0,0.06) 20px
+  );
+  pointer-events: none;
+}
+
+/* Shimmer */
+.mkd-flash-left::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 60%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+  animation: mkd-f-shimmer 3s ease-in-out infinite;
+}
+
+@keyframes mkd-f-shimmer {
+  0% { left: -60%; }
+  100% { left: 160%; }
+}
+
+.mkd-flash-bolt {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 10px;
+}
+
+.mkd-flash-bolt svg {
+  width: 90px;
+  height: 130px;
+  filter: drop-shadow(0 4px 20px rgba(0,0,0,0.3));
+}
+
+.mkd-flash-limited {
+  position: relative;
+  z-index: 1;
+  background: rgba(0,0,0,0.25);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 5px 16px;
+  border-radius: 3px;
+  margin-bottom: 14px;
+}
+
+.mkd-flash-word {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  font-family: 'Outfit', sans-serif;
+  font-size: 52px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -1px;
+  text-shadow: 0 3px 15px rgba(0,0,0,0.3);
+}
+
+.mkd-flash-word-sub {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  background: #111;
+  color: #fff;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  padding: 6px 20px;
+  margin-top: 6px;
+  border-radius: 4px;
+}
+
+@media (max-width: 600px) {
+  .mkd-flash-left {
+    padding: 30px 20px;
+    flex: none;
+  }
+  .mkd-flash-word { font-size: 40px; }
+  .mkd-flash-word-sub { font-size: 18px; }
+  .mkd-flash-bolt svg { width: 60px; height: 90px; }
+}
+
+/* ── RIGHT PANEL (Dark) ── */
+.mkd-flash-right {
+  flex: 1;
+  background: #0a0a0a;
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.mkd-flash-right::before {
+  content: 'FREE';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Outfit', sans-serif;
+  font-size: 140px;
+  font-weight: 900;
+  color: rgba(192,57,43,0.03);
+  letter-spacing: 8px;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.mkd-flash-pretitle {
+  color: var(--red);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.mkd-flash-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.05;
+  margin-bottom: 2px;
+  position: relative;
+}
+
+.mkd-flash-headline em {
+  font-style: italic;
+  color: var(--red);
+}
+
+.mkd-flash-headline-sub {
+  font-family: 'Outfit', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.mkd-flash-divider {
+  width: 60px;
+  height: 2px;
+  background: var(--red);
+  margin: 0 auto 16px;
+  position: relative;
+}
+
+/* ── URGENCY STRIP (replaces countdown) ── */
+.mkd-flash-urgency {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: rgba(192,57,43,0.06);
+  border: 1px solid rgba(192,57,43,0.2);
+  border-radius: 8px;
+  padding: 12px 20px;
+  margin-bottom: 20px;
+  position: relative;
+  max-width: 360px;
+}
+
+/* Live pulsing dot */
+.mkd-flash-live-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--red);
+  flex-shrink: 0;
+  position: relative;
+}
+
+.mkd-flash-live-dot::after {
+  content: '';
+  position: absolute;
+  top: -3px; left: -3px;
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  border: 2px solid var(--red);
+  animation: mkd-f-ping 1.5s ease-out infinite;
+}
+
+@keyframes mkd-f-ping {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+.mkd-flash-urgency-text {
+  font-size: 13px;
+  font-weight: 600;
+  color: #ccc;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.mkd-flash-urgency-text strong {
+  color: #fff;
+  font-weight: 800;
+}
+
+.mkd-flash-urgency-text em {
+  color: var(--red);
+  font-style: normal;
+  font-weight: 800;
+}
+
+/* ── SPOTS DRAINING BAR ── */
+.mkd-flash-drain {
+  width: 100%;
+  max-width: 320px;
+  margin-bottom: 18px;
+  position: relative;
+}
+
+.mkd-flash-drain-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.mkd-flash-drain-label span {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #555;
+}
+
+.mkd-flash-drain-label strong {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--red);
+}
+
+.mkd-flash-drain-bar {
+  width: 100%;
+  height: 8px;
+  background: #1a1a1a;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.mkd-flash-drain-fill {
+  width: 30%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--red-dark), var(--red-light));
+  border-radius: 4px;
+  position: relative;
+  animation: mkd-f-drain-fill 2s ease-out forwards;
+}
+
+@keyframes mkd-f-drain-fill {
+  0% { width: 100%; }
+  100% { width: 30%; }
+}
+
+/* Animated pulse on the remaining bar */
+.mkd-flash-drain-fill::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 12px;
+  height: 100%;
+  background: rgba(255,255,255,0.4);
+  border-radius: 4px;
+  animation: mkd-f-drain-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes mkd-f-drain-pulse {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.8; }
+}
+
+/* ── WHAT'S INCLUDED ── */
+.mkd-flash-includes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 14px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.mkd-flash-includes span {
+  color: #aaa;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.mkd-flash-includes span::before {
+  content: "✓";
+  color: var(--red);
+  font-weight: 800;
+  font-size: 10px;
+}
+
+/* ── CTA ── */
+.mkd-flash-cta {
+  display: inline-block;
+  background: var(--red);
+  color: #fff;
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 40px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.3s, background 0.2s;
+  box-shadow: 0 4px 20px rgba(192,57,43,0.35);
+  animation: mkd-f-cta-pulse 2s ease-in-out infinite;
+  position: relative;
+}
+
+@keyframes mkd-f-cta-pulse {
+  0%, 100% { box-shadow: 0 4px 20px rgba(192,57,43,0.35); }
+  50% { box-shadow: 0 6px 30px rgba(192,57,43,0.5); }
+}
+
+.mkd-flash-cta:hover {
+  transform: translateY(-2px);
+  background: var(--red-light);
+  animation: none;
+  box-shadow: 0 8px 36px rgba(192,57,43,0.5);
+}
+
+.mkd-flash-fine {
+  color: #444;
+  font-size: 10px;
+  margin-top: 12px;
+  line-height: 1.5;
+  position: relative;
+}
+
+/* ── MOBILE ── */
+@media (max-width: 600px) {
+  .mkd-flash-right {
+    padding: 28px 18px;
+  }
+  .mkd-flash-headline {
+    font-size: 30px;
+  }
+  .mkd-flash-headline-sub {
+    font-size: 13px;
+    letter-spacing: 2px;
+  }
+  .mkd-flash-cta {
+    width: 100%;
+    padding: 14px 20px;
+  }
+  .mkd-flash-right::before {
+    font-size: 80px;
+  }
+  .mkd-flash-urgency {
+    padding: 10px 14px;
+  }
+}
+</style>
+
+
+<div class="mkd-flash">
+  <div class="mkd-flash-card">
+    <div class="mkd-flash-inner">
+
+      <!-- LEFT — Red Panel -->
+      <div class="mkd-flash-left">
+        <div class="mkd-flash-bolt">
+          <svg viewBox="0 0 80 120" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="50,0 10,65 35,65 25,120 70,50 45,50 55,0" fill="#fff" opacity="0.95"/>
+            <polygon points="50,0 10,65 35,65 25,120 70,50 45,50 55,0" fill="url(#mkd-bolt-g)" opacity="0.15"/>
+            <defs><linearGradient id="mkd-bolt-g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000"/><stop offset="1" stop-color="#000" stop-opacity="0.5"/></linearGradient></defs>
+          </svg>
+        </div>
+        <div class="mkd-flash-limited">Limited Time Offer</div>
+        <div class="mkd-flash-word">FREE</div>
+        <div class="mkd-flash-word-sub">Detail</div>
+      </div>
+
+      <!-- RIGHT — Dark Panel -->
+      <div class="mkd-flash-right">
+
+        <div class="mkd-flash-pretitle">Spring Special</div>
+        
+        <h2 class="mkd-flash-headline"><em>Free</em> Exterior</h2>
+        <div class="mkd-flash-headline-sub">With Any Interior Booking</div>
+
+        <div class="mkd-flash-divider"></div>
+
+        <!-- URGENCY — replaces countdown -->
+        <div class="mkd-flash-urgency">
+          <div class="mkd-flash-live-dot"></div>
+          <div class="mkd-flash-urgency-text">
+            <strong>Ending this week.</strong><br/>
+            Once spots fill, this offer is <em>gone for good.</em>
+          </div>
+        </div>
+
+        <!-- DRAINING SPOTS BAR -->
+        <div class="mkd-flash-drain">
+          <div class="mkd-flash-drain-label">
+            <span>Spots Remaining</span>
+            <strong>3 left</strong>
+          </div>
+          <div class="mkd-flash-drain-bar">
+            <div class="mkd-flash-drain-fill"></div>
+          </div>
+        </div>
+
+        <div class="mkd-flash-includes">
+          <span>Hand wash</span>
+          <span>Wax &amp; sealant</span>
+          <span>Wheels</span>
+          <span>Tires</span>
+          <span>Glass</span>
+        </div>
+
+        <a href="sms:3607975831?&body=Hey%20Mikey%2C%20I%20want%20to%20claim%20the%20free%20exterior%20deal%20with%20an%20interior%20detail.%20When%20can%20you%20get%20me%20in%3F" class="mkd-flash-cta">Claim Free Exterior Now →</a>
+
+        <p class="mkd-flash-fine">First-time clients only · $150+ value, on the house · I've never done this before and won't again.<br/>This is a one-time offer. It will not be repeated.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
